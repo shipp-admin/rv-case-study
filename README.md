@@ -1,78 +1,160 @@
-<p align="center">
-  <a href="https://nextjs-flask-starter.vercel.app/">
-    <img src="https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png" height="96">
-    <h3 align="center">Next.js Flask Starter</h3>
-  </a>
-</p>
+# Lending Optimization Analysis
 
-<p align="center">Simple Next.js boilerplate that uses <a href="https://flask.palletsprojects.com/">Flask</a> as the API backend.</p>
+Data-driven analysis platform to optimize customer-lender matching and maximize Revenue Per Application (RPA) through intelligent assignment algorithms.
 
-<br/>
+## Overview
 
-## Introduction
+This project analyzes 100,000 lending applications across 3 lenders (A, B, C) to answer three key business questions:
 
-This is a hybrid Next.js + Python app that uses Next.js as the frontend and Flask as the API backend. One great use case of this is to write Next.js apps that use Python AI libraries on the backend.
+1. **Variable Importance**: Which customer features predict loan approval?
+2. **Lender Preferences**: What customer types do different lenders approve?
+3. **Revenue Optimization**: How much incremental revenue can we generate through optimal matching?
 
-## How It Works
+**Key Finding**: Optimal customer-lender matching increases revenue by **$2.94M annually (+111.3%)** with 95% confidence interval [$2.91M, $2.97M].
 
-The Python/Flask server is mapped into to Next.js app under `/api/`.
+## Technology Stack
 
-This is implemented using [`next.config.js` rewrites](https://github.com/vercel/examples/blob/main/python/nextjs-flask/next.config.js) to map any request to `/api/:path*` to the Flask API, which is hosted in the `/api` folder.
+- **Frontend**: Next.js 15 + React 19 + TypeScript + Tailwind CSS
+- **Backend**: Python 3.11+ (pandas, scikit-learn, xgboost)
+- **Analysis**: Jupyter notebooks for exploratory analysis
+- **Dashboard**: Interactive validation & results visualization
 
-On localhost, the rewrite will be made to the `127.0.0.1:5328` port, which is where the Flask server is running.
+## Project Structure
 
-In production, the Flask server is hosted as [Python serverless functions](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python) on Vercel.
-
-## Demo
-
-https://nextjs-flask-starter.vercel.app/
-
-## Deploy Your Own
-
-You can clone & deploy it to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-title=Next.js%20Flask%20Starter&demo-description=Simple%20Next.js%20boilerplate%20that%20uses%20Flask%20as%20the%20API%20backend.&demo-url=https%3A%2F%2Fnextjs-flask-starter.vercel.app%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F795TzKM3irWu6KBCUPpPz%2F44e0c6622097b1eea9b48f732bf75d08%2FCleanShot_2023-05-23_at_12.02.15.png&project-name=Next.js%20Flask%20Starter&repository-name=nextjs-flask-starter&repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fnextjs-flask&from=vercel-examples-repo)
-
-## Developing Locally
-
-You can clone & create this repo with the following command
-
-```bash
-npx create-next-app nextjs-flask --example "https://github.com/vercel/examples/tree/main/python/nextjs-flask"
+```
+rv-case-study/
+├── app/                    # Next.js frontend & API routes
+│   ├── dashboard/          # Analysis dashboard UI
+│   └── api/                # Python execution & validation APIs
+├── src/                    # Python analysis modules (4 phases)
+│   ├── phase1_eda/         # Exploratory data analysis
+│   ├── phase2_feature_importance/  # Feature selection
+│   ├── phase3_lender_analysis/     # Lender-specific models
+│   └── phase4_revenue_optimization/ # Matching algorithm
+├── tests/                  # Validation tests for all phases
+├── reports/                # Analysis outputs (tables, figures)
+├── data/                   # Raw and processed datasets
+├── models/                 # Trained ML models
+└── documentation/          # PRD and analysis guides
 ```
 
 ## Getting Started
 
-First, install the dependencies:
+### Prerequisites
 
-```bash
-npm install
-# or
-yarn
-# or
-pnpm install
-```
+- Node.js 18+ and npm
+- Python 3.11+
+- 4GB RAM minimum
 
-Then, run the development server:
+### Installation
 
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd rv-case-study
+   ```
+
+2. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install Python dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Place the dataset**
+   - Add `Pre-Super_Day_candidate_dataset.xlsx` to `app/` directory
+
+### Running the Application
+
+**Start the development server**:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This starts:
+- Next.js frontend at http://localhost:3000
+- Python Flask backend at http://127.0.0.1:5328
 
-The Flask server will be running on [http://127.0.0.1:5328](http://127.0.0.1:5328) – feel free to change the port in `package.json` (you'll also need to update it in `next.config.js`).
+**Access the dashboard**:
+- Open http://localhost:3000/dashboard
+- Use sidebar to run analysis phases and validate results
 
-## Learn More
+## Analysis Workflow
 
-To learn more about Next.js, take a look at the following resources:
+Each phase follows: **Implement → Run → Validate → Review Results**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Flask Documentation](https://flask.palletsprojects.com/en/1.1.x/) - learn about Flask features and API.
+1. **Phase 1: EDA** - Data exploration and feature engineering
+   - 1.1: Univariate analysis
+   - 1.2: Bivariate analysis
+   - 1.3: Missing value treatment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Phase 2: Feature Importance** - Variable selection
+   - 2.1: Statistical importance testing
+   - 2.2: ML feature importance (Random Forest, XGBoost)
+   - 2.3: Feature validation
+
+3. **Phase 3: Lender Analysis** - Lender specialization
+   - 3.1: Approval rate profiling
+   - 3.2: Lender-specific predictive models
+   - 3.3: Specialization analysis
+
+4. **Phase 4: Revenue Optimization** - Matching algorithm
+   - 4.1: Baseline revenue calculation
+   - 4.2: Optimal matching algorithm
+   - 4.3: Incremental revenue estimation
+
+## Key Results
+
+### Baseline vs Optimal Matching
+
+| Metric | Baseline (Random) | Optimal (Matched) | Gain |
+|--------|-------------------|-------------------|------|
+| **Total Revenue** | $2,641,500 | $5,582,149 | **+$2,940,649** |
+| **Revenue Per App** | $26.42 | $55.82 | **+$29.41** |
+| **Approval Rate** | 10.98% | 23.19% | +12.21 pp |
+
+### Top Customer Segments
+
+- **Small Loans** ($7K-$11K): +$1.48M incremental revenue
+- **High Income** (Q4): +$1.39M incremental revenue
+- **Good FICO** (670+): +$1.31M incremental revenue
+
+### Lender Specializations
+
+- **Lender A**: High FICO (670+), Income Q3-Q4, Medium-large loans
+- **Lender B**: Mid FICO (600-670), Medium income, Small-medium loans
+- **Lender C**: Broad FICO (580-700), All incomes, Small loans (highest opportunity)
+
+## Validation
+
+Run validation tests to verify analysis correctness:
+
+```bash
+# Validate specific phase
+python3 tests/test_phase4_incremental_revenue.py
+
+# All validations accessible via dashboard
+```
+
+**Phase 4.3 Validation**: ✅ 100% pass rate (35/35 checks)
+
+## Documentation
+
+- **PRD**: `PRD_LENDING_OPTIMIZATION.md` - Full analysis roadmap
+- **Executive Summary**: `EXECUTIVE_SUMMARY.md` - Business findings with mathematical derivations
+- **Phase Guides**: `documentation/PHASE{1-4}_GUIDE.md` - Implementation details
+
+## Contributing
+
+1. Follow phase-based structure for new analysis
+2. Add validation tests for all outputs
+3. Update documentation with findings
+4. Use dashboard for execution and validation
+
+
+---
+
+**Questions?** See `PRD_LENDING_OPTIMIZATION.md` for complete analysis methodology and technical details.
