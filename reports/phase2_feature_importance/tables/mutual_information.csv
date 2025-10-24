@@ -1,0 +1,16 @@
+Feature,Type,Mutual_Information,Rank
+FICO_score,Numerical,0.04389460954422897,1
+Fico_Score_group,Categorical,0.04324110828800914,2
+FICO_Bin_Custom,Categorical,0.042117279167731086,3
+DTI,Numerical,0.013942420949884626,4
+Monthly_Gross_Income,Numerical,0.013389702113193458,5
+Income_Quartile,Categorical,0.01187399735018222,6
+LTI,Numerical,0.00980249085373619,7
+Lender,Categorical,0.005236308661967656,8
+Loan_Amount,Numerical,0.0028286765176044337,9
+Employment_Status,Categorical,0.0024118214781202567,10
+Monthly_Housing_Payment,Numerical,0.002034543947412093,11
+Employment_Sector,Categorical,0.0019245698115589998,12
+Ever_Bankrupt_or_Foreclose,Numerical,0.0010774791337322398,13
+Loan_Category,Categorical,0.0007860679970609769,14
+Reason,Categorical,9.793394153280455e-06,15

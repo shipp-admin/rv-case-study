@@ -1,0 +1,25 @@
+{
+  "analysis": {
+    "missing_count": 6407,
+    "missing_percentage": 6.407,
+    "chi_square_statistic": 209.94342665829168,
+    "chi_square_p_value": 1.4132158933547433e-47,
+    "predicts_approval": true,
+    "approval_rate_has_sector": 11.351276270661268,
+    "approval_rate_missing_sector": 5.493990947401279,
+    "approval_difference": -5.857285323259989
+  },
+  "strategy": {
+    "chosen_strategy": "unknown_category",
+    "rationale": "Create Unknown category to preserve information and test predictive power of missingness",
+    "alternatives_considered": [
+      "Mode imputation - rejected due to loss of missing pattern signal",
+      "Deletion - rejected due to data loss (6.4% of dataset)"
+    ]
+  },
+  "recommendations": [
+    "Missing pattern is statistically significant predictor",
+    "Unknown category preserves this information for modeling",
+    "Can be used as feature in Phase 2 analysis"
+  ]
+}

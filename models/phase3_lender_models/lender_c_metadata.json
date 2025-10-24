@@ -1,0 +1,14 @@
+{
+  "lender": "C",
+  "feature_count": 13,
+  "train_samples": 12250,
+  "test_samples": 5250,
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "n_estimators": 100
+  },
+  "cv_score": 0.761727273352918,
+  "train_auc": 0.8560317221112912,
+  "test_auc": 0.7518993772008031
+}

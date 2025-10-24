@@ -1,0 +1,2 @@
+baseline_total_revenue,baseline_rpa,optimal_total_revenue,optimal_rpa,incremental_revenue,incremental_rpa,lift_percentage,ci_lower,ci_upper,bootstrap_iterations
+2641500.0,26.415,5582149.333198469,55.82149333198469,2940649.333198469,29.40649333198469,111.32497948886879,2913044.262705546,2968476.4707334903,1000

@@ -1,0 +1,15 @@
+Feature,Type
+FICO_score,Original
+Monthly_Gross_Income,Original
+Loan_Amount,Original
+Monthly_Housing_Payment,Original
+Reason_encoded,Original
+Employment_Status_encoded,Original
+Employment_Sector_encoded,Original
+Lender_encoded,Original
+Ever_Bankrupt_or_Foreclose_encoded,Original
+DTI,Engineered
+LTI,Engineered
+Fico_Score_group_encoded,Engineered
+Income_Quartile_encoded,Engineered
+FICO_Bin_Custom_encoded,Engineered

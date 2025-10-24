@@ -1,0 +1,73 @@
+# Data Configuration for Lending Analysis
+
+# File Paths
+paths:
+  raw_data: "data/raw/lending_data.xlsx"
+  processed_data: "data/processed/"
+  outputs: "data/outputs/"
+  reports: "reports/"
+
+# Column Definitions
+columns:
+  identifier: "User ID"
+  target: "Approved"
+  revenue: "bounty"
+  lender: "Lender"
+
+  categorical:
+    - "Reason"
+    - "Fico_Score_group"
+    - "Employment_Status"
+    - "Employment_Sector"
+    - "Lender"
+
+  numerical:
+    - "Loan_Amount"
+    - "FICO_score"
+    - "Monthly_Gross_Income"
+    - "Monthly_Housing_Payment"
+    - "Ever_Bankrupt_or_Foreclose"
+
+  to_drop:
+    - "applications"  # Always 1, no variance
+
+# Data Types
+dtypes:
+  User ID: str
+  applications: int
+  Reason: str
+  Loan_Amount: int
+  FICO_score: int
+  Fico_Score_group: str
+  Employment_Status: str
+  Employment_Sector: str
+  Monthly_Gross_Income: int
+  Monthly_Housing_Payment: int
+  Ever_Bankrupt_or_Foreclose: int
+  Lender: str
+  Approved: int
+  bounty: int
+
+# Missing Value Strategy
+missing_values:
+  Employment_Sector:
+    strategy: "create_unknown_category"  # Options: impute_mode, create_unknown_category, delete, model_based
+    test_predictive: true  # Test if missing pattern predicts approval
+
+# Train-Test Split
+split:
+  test_size: 0.3
+  random_state: 42
+  stratify_by: "Approved"  # Maintain approval rate in both sets
+
+# Lender Information
+lenders:
+  A:
+    volume_share: 0.55
+    approval_rate: 0.1097
+  B:
+    volume_share: 0.275
+    approval_rate: 0.0713
+  C:
+    volume_share: 0.175
+    approval_rate: 0.1706

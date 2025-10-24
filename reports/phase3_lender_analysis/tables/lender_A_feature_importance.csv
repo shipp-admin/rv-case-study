@@ -1,0 +1,14 @@
+Feature,Importance
+FICO_score,0.32797015
+Employment_Status_encoded,0.08743331
+DTI,0.08438915
+Monthly_Gross_Income,0.07962739
+FICO_Bin_Custom_encoded,0.06915631
+Ever_Bankrupt_or_Foreclose_encoded,0.058560114
+Fico_Score_group_encoded,0.056994505
+LTI,0.05620643
+Monthly_Housing_Payment,0.056075215
+Income_Quartile_encoded,0.044147313
+Loan_Amount,0.03630315
+Employment_Sector_encoded,0.023636488
+Reason_encoded,0.019500412

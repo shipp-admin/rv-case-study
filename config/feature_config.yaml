@@ -1,0 +1,47 @@
+# Feature Engineering Configuration
+
+# Derived Features
+engineered_features:
+  debt_to_income:
+    formula: "Monthly_Housing_Payment / Monthly_Gross_Income"
+    description: "Ratio of housing payment to gross income"
+
+  loan_to_income:
+    formula: "Loan_Amount / (Monthly_Gross_Income * 12)"
+    description: "Ratio of loan amount to annual income"
+
+  fico_bins:
+    bins: [0, 579, 669, 739, 799, 850]
+    labels: ["Poor", "Fair", "Good", "Very Good", "Exceptional"]
+    description: "Custom FICO score binning"
+
+  income_quartiles:
+    quantiles: 4
+    labels: ["Q1", "Q2", "Q3", "Q4"]
+    description: "Income segmentation into quartiles"
+
+  loan_amount_category:
+    bins: [0, 30000, 60000, 100000]
+    labels: ["Small", "Medium", "Large"]
+    description: "Loan amount categorization"
+
+# Interaction Terms
+interaction_features:
+  - name: "FICO_x_Income"
+    features: ["FICO_score", "Monthly_Gross_Income"]
+    operation: "multiply"
+
+  - name: "FICO_x_LoanAmount"
+    features: ["FICO_score", "Loan_Amount"]
+    operation: "multiply"
+
+# Feature Scaling
+scaling:
+  method: "StandardScaler"  # Options: StandardScaler, MinMaxScaler, RobustScaler
+  features:
+    - "Loan_Amount"
+    - "FICO_score"
+    - "Monthly_Gross_Income"
+    - "Monthly_Housing_Payment"
+    - "debt_to_income"
+    - "loan_to_income"

@@ -1,0 +1,2 @@
+total_assignments,mean_optimal_ev,median_optimal_ev,mean_confidence,median_confidence,low_confidence_count,high_confidence_count,lender_distribution
+100000,55.82149333198469,40.89764874157182,0.5026942387044897,0.5298583613266248,3336,59722,"{'A': 6148, 'B': 2279, 'C': 91573}"

@@ -1,0 +1,30 @@
+{
+  "anova_significant_vars": [
+    "FICO_score",
+    "Monthly_Gross_Income",
+    "DTI",
+    "LTI"
+  ],
+  "chi_square_significant_vars": [
+    "Employment_Status",
+    "Income_Quartile"
+  ],
+  "num_clusters": 3,
+  "lender_sweet_spots": [
+    {
+      "Lender": "A",
+      "Sweet_Spot_Cluster": 1,
+      "Percentage": 58.14616755793226
+    },
+    {
+      "Lender": "B",
+      "Sweet_Spot_Cluster": 1,
+      "Percentage": 25.169340463458113
+    },
+    {
+      "Lender": "C",
+      "Sweet_Spot_Cluster": 0,
+      "Percentage": 33.51976856316297
+    }
+  ]
+}

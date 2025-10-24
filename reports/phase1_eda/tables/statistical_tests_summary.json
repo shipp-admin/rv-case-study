@@ -1,0 +1,22 @@
+{
+  "correlation_insights": {
+    "strongest_positive": {
+      "variables": "Monthly_Gross_Income & Loan_Amount",
+      "correlation": 0.002923013347533835
+    },
+    "strongest_with_approval": {
+      "variable": "FICO_score",
+      "correlation": 0.26958715790146653
+    }
+  },
+  "chi_square_insights": {
+    "most_significant": "Fico_Score_group",
+    "p_value": 0.0,
+    "significant_count": 5
+  },
+  "anova_insights": {
+    "largest_difference": "FICO_score",
+    "mean_difference": 76.46399663837508,
+    "significant_count": 4
+  }
+}

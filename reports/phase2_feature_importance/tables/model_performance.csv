@@ -1,0 +1,4 @@
+Model,Test_AUC,Meets_Target
+Random Forest,0.8152642746127684,True
+XGBoost,0.824614314275107,True
+Logistic Regression,0.7809033734745252,True

@@ -1,0 +1,43 @@
+{
+  "DTI": {
+    "description": "Debt-to-Income Ratio: Monthly_Housing_Payment / Monthly_Gross_Income",
+    "mean": 0.3400510711369257,
+    "median": 0.291041150675048,
+    "std": 0.19906919004580212
+  },
+  "LTI": {
+    "description": "Loan-to-Income Ratio: Loan_Amount / (Monthly_Gross_Income * 12)",
+    "mean": 0.8013131412324209,
+    "median": 0.5998080614203455,
+    "std": 0.6747473742113893
+  },
+  "FICO_Bin_Custom": {
+    "description": "Custom FICO bins with finer granularity",
+    "categories": {
+      "<580": 28084,
+      "660-699": 17254,
+      "580-619": 16400,
+      "620-659": 16383,
+      "700-739": 14596,
+      "780+": 3648,
+      "740-779": 3635
+    }
+  },
+  "Income_Quartile": {
+    "description": "Income quartiles: Q1 (lowest) to Q4 (highest)",
+    "categories": {
+      "Q3_Medium_High": 25006,
+      "Q1_Low": 25003,
+      "Q2_Medium_Low": 24997,
+      "Q4_High": 24994
+    }
+  },
+  "Loan_Category": {
+    "description": "Loan amount categories: Small (<30K), Medium (30-60K), Large (60K+)",
+    "categories": {
+      "Small_<30K": 47562,
+      "Large_60K+": 28646,
+      "Medium_30-60K": 23792
+    }
+  }
+}
